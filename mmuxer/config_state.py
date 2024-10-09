@@ -146,6 +146,10 @@ class State:
         return self._rules
 
     @property
+    def headers_only(self) -> bool:
+        return all(rule.headers_only for rule in self.rules)
+
+    @property
     def mailbox(self) -> BaseMailBox:
         if self._mailbox is None:
             raise Exception("Uninitialized mailbox")

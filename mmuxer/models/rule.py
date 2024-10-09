@@ -23,6 +23,10 @@ class Rule(BaseModel):
             return True
         return False
 
+    @property
+    def headers_only(self) -> bool:
+        return self.condition.headers_only
+
     def _actions(self) -> List[Action]:
         from ..config_state import state
 
